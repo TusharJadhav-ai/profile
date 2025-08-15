@@ -1,559 +1,560 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tushar Jadhav | Data Analytics Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                rgba(255,255,255,0.05),
-                rgba(255,255,255,0.05) 1px,
-                transparent 1px,
-                transparent 20px
-            );
-            animation: slide 20s linear infinite;
-        }
-        
-        @keyframes slide {
-            0% { transform: translate(-50%, -50%); }
-            100% { transform: translate(-49%, -49%); }
-        }
-        
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid rgba(255,255,255,0.8);
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .header .tagline {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-info a:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .section {
-            padding: 60px 0;
-        }
-        
-        .section:nth-child(even) {
-            background: #f8f9fa;
-        }
-        
-        .section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            text-align: center;
-            color: #2c3e50;
-            position: relative;
-        }
-        
-        .section h2::after {
-            content: '';
-            width: 60px;
-            height: 3px;
-            background: #3498db;
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .summary {
-            font-size: 1.1rem;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            color: #555;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .skill-category {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-5px);
-        }
-        
-        .skill-category h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .skill-tag {
-            background: #3498db;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .project-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .project-card h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-        
-        .project-tech {
-            color: #3498db;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .project-description {
-            color: #666;
-            margin-bottom: 15px;
-        }
-        
-        .project-highlights {
-            list-style: none;
-        }
-        
-        .project-highlights li {
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-        }
-        
-        .project-highlights li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-            font-weight: bold;
-        }
-        
-        .experience-timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .timeline-item {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-            margin-left: 30px;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -15px;
-            top: 30px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #3498db;
-        }
-        
-        .timeline-item h3 {
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        
-        .timeline-item .company {
-            color: #3498db;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .timeline-item .duration {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        
-        .achievements {
-            list-style: none;
-        }
-        
-        .achievements li {
-            margin-bottom: 8px;
-            padding-left: 15px;
-            position: relative;
-            color: #555;
-        }
-        
-        .achievements li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #3498db;
-            font-weight: bold;
-        }
-        
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .education-item {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        .education-item h3 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        .education-item .institution {
-            color: #3498db;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .contact-info {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .section {
-                padding: 40px 0;
-            }
-            
-            .timeline-item {
-                margin-left: 0;
-            }
-            
-            .timeline-item::before {
-                display: none;
-            }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tushar Jadhav | Data Analytics Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255,255,255,0.05),
+                rgba(255,255,255,0.05) 1px,
+                transparent 1px,
+                transparent 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+        
+        @keyframes slide {
+            0% { transform: translate(-50%, -50%); }
+            100% { transform: translate(-49%, -49%); }
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.8);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #2c3e50;
+            position: relative;
+        }
+        
+        .section h2::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .summary {
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            background: #3498db;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .project-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .project-tech {
+            color: #3498db;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .project-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .project-highlights {
+            list-style: none;
+        }
+        
+        .project-highlights li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .project-highlights li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            margin-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 30px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #3498db;
+        }
+        
+        .timeline-item h3 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-item .company {
+            color: #3498db;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-item .duration {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .achievements {
+            list-style: none;
+        }
+        
+        .achievements li {
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+            color: #555;
+        }
+        
+        .achievements li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .education-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .education-item h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .education-item .institution {
+            color: #3498db;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .timeline-item {
+                margin-left: 0;
+            }
+            
+            .timeline-item::before {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="header">
-        <div class="container">
-            <img src="https://raw.githubusercontent.com/TusharJadhav-ai/profile/main/images/Photo.jpg" alt="Tushar Jadhav" class="profile-img">
-            <h1>Tushar Jadhav</h1>
-            <p class="tagline">Data Analyst in Transition | 17+ Years in Data | Python, R, SQL | Generative AI Projects</p>
-            <div class="contact-info">
-                <a href="mailto:tusharRjadhav@outlook.com">📧 Email</a>
-                <a href="tel:+917045457640">📱 +91 7045457640</a>
-                <a href="https://www.linkedin.com/in/tusharjadhav-/" target="_blank">💼 LinkedIn</a>
-                <a href="https://github.com/TusharJadhav-ai" target="_blank">💻 GitHub</a>
-            </div>
-        </div>
-    </div>
+    <div class="header">
+        <div class="container">
+            <img src="https://raw.githubusercontent.com/TusharJadhav-ai/profile/main/images/Photo.jpg" alt="Tushar Jadhav" class="profile-img">
+            <h1>Tushar Jadhav</h1>
+            <p class="tagline">Data Analyst in Transition | 17+ Years in Data | Python, R, SQL | Generative AI Projects</p>
+            <div class="contact-info">
+                <a href="mailto:tusharRjadhav@outlook.com">📧 Email</a>
+                <a href="tel:+917045457640">📱 +91 7045457640</a>
+                <a href="https://linkedin.com/in/tushar-jadhav" target="_blank">💼 LinkedIn</a>
+                <a href="https://github.com/TusharJadhav-ai" target="_blank">💻 GitHub</a>
+            </div>
+        </div>
+    </div>
 
-    <section class="section">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="summary">
-                Experienced Data Professional with 17 years in data processing and market research. Currently focused on transitioning into data analytics, with hands-on experience in Python, R, SQL, and interactive dashboard tools. Skilled in uncovering insights from data, developing dashboards, and contributing to data-driven decision-making. Actively exploring Generative AI tools and prompt engineering to enhance productivity and analytical storytelling.
-            </div>
-        </div>
-    </section>
+    <section class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="summary">
+                Experienced Data Professional with 17 years in data processing and market research. Currently focused on transitioning into data analytics, with hands-on experience in Python, R, SQL, and interactive dashboard tools. Skilled in uncovering insights from data, developing dashboards, and contributing to data-driven decision-making. Actively exploring Generative AI tools and prompt engineering to enhance productivity and analytical storytelling.
+            </div>
+        </div>
+    </section>
 
-    <section class="section">
-        <div class="container">
-            <h2>Skills & Technologies</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming & Analytics</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">R</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">SPSS</span>
-                        <span class="skill-tag">Quantum</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Libraries & Frameworks</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">NumPy</span>
-                        <span class="skill-tag">Matplotlib</span>
-                        <span class="skill-tag">Seaborn</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">ggplot2</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Visualization & BI</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">Tableau</span>
-                        <span class="skill-tag">Excel</span>
-                        <span class="skill-tag">Streamlit</span>
-                        <span class="skill-tag">Shiny</span>
-                        <span class="skill-tag">Plotly</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>AI & Modern Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">ChatGPT</span>
-                        <span class="skill-tag">Gemini</span>
-                        <span class="skill-tag">Copilot</span>
-                        <span class="skill-tag">Prompt Engineering</span>
-                        <span class="skill-tag">Git</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="section">
+        <div class="container">
+            <h2>Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">SPSS</span>
+                        <span class="skill-tag">Quantum</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Libraries & Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Seaborn</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">ggplot2</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Visualization & BI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Excel</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Shiny</span>
+                        <span class="skill-tag">Plotly</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>AI & Modern Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ChatGPT</span>
+                        <span class="skill-tag">Gemini</span>
+                        <span class="skill-tag">Copilot</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Jupyter</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="section">
-        <div class="container">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Credit EDA Case Study</h3>
-                    <div class="project-tech">Python | Pandas | Matplotlib | Seaborn</div>
-                    <div class="project-description">
-                        Identified patterns in customer profiles that indicate loan default risk to support smarter lending decisions.
-                    </div>
-                    <ul class="project-highlights">
-                        <li>Conducted detailed exploratory data analysis</li>
-                        <li>Analyzed demographic and financial variables</li>
-                        <li>Identified strong predictor variables for defaults</li>
-                        <li>Provided actionable insights for risk assessment</li>
-                    </ul>
-                </div>
-                
-                <div class="project-card">
-                    <h3>RSVP Movies Case Study</h3>
-                    <div class="project-tech">SQL | Advanced Queries | Data Analysis</div>
-                    <div class="project-description">
-                        Analyzed 3 years of movie data to help RSVP Movies plan their next global release project.
-                    </div>
-                    <ul class="project-highlights">
-                        <li>Used complex SQL with JOINS and window functions</li>
-                        <li>Analyzed trends across genres and budgets</li>
-                        <li>Delivered recommendations on casting decisions</li>
-                        <li>Identified optimal release windows</li>
-                    </ul>
-                </div>
-                
-                <div class="project-card">
-                    <h3>Lead Scoring Case Study</h3>
-                    <div class="project-tech">Python | Logistic Regression | Machine Learning</div>
-                    <div class="project-description">
-                        Built a model to assign lead scores (0–100) for better sales team prioritization.
-                    </div>
-                    <ul class="project-highlights">
-                        <li>Developed logistic regression model</li>
-                        <li>Classified hot vs. cold leads effectively</li>
-                        <li>Ensured model adaptability to business needs</li>
-                        <li>Delivered strategic recommendations via PPT</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="section">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Credit EDA Case Study</h3>
+                    <div class="project-tech">Python | Pandas | Matplotlib | Seaborn</div>
+                    <div class="project-description">
+                        Identified patterns in customer profiles that indicate loan default risk to support smarter lending decisions.
+                    </div>
+                    <ul class="project-highlights">
+                        <li>Conducted detailed exploratory data analysis</li>
+                        <li>Analyzed demographic and financial variables</li>
+                        <li>Identified strong predictor variables for defaults</li>
+                        <li>Provided actionable insights for risk assessment</li>
+                    </ul>
+                </div>
+                
+                <div class="project-card">
+                    <h3>RSVP Movies Case Study</h3>
+                    <div class="project-tech">SQL | Advanced Queries | Data Analysis</div>
+                    <div class="project-description">
+                        Analyzed 3 years of movie data to help RSVP Movies plan their next global release project.
+                    </div>
+                    <ul class="project-highlights">
+                        <li>Used complex SQL with JOINS and window functions</li>
+                        <li>Analyzed trends across genres and budgets</li>
+                        <li>Delivered recommendations on casting decisions</li>
+                        <li>Identified optimal release windows</li>
+                    </ul>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Lead Scoring Case Study</h3>
+                    <div class="project-tech">Python | Logistic Regression | Machine Learning</div>
+                    <div class="project-description">
+                        Built a model to assign lead scores (0–100) for better sales team prioritization.
+                    </div>
+                    <ul class="project-highlights">
+                        <li>Developed logistic regression model</li>
+                        <li>Classified hot vs. cold leads effectively</li>
+                        <li>Ensured model adaptability to business needs</li>
+                        <li>Delivered strategic recommendations via PPT</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="section">
-        <div class="container">
-            <h2>Professional Experience</h2>
-            <div class="experience-timeline">
-                <div class="timeline-item">
-                    <h3>Senior Associate</h3>
-                    <div class="company">Acuity Knowledge Partners</div>
-                    <div class="duration">Aug 2021 - Dec 2022 | Bengaluru</div>
-                    <ul class="achievements">
-                        <li>Enhanced data accuracy by 20% through validation using Python libraries</li>
-                        <li>Saved 8 hours per project through efficient data merging processes</li>
-                        <li>Reduced turnaround time by 30% through balanced quotas</li>
-                    </ul>
-                </div>
-                
-                <div class="timeline-item">
-                    <h3>Sr. Data Executive</h3>
-                    <div class="company">Market Xcel Data Matrix Pvt. Ltd</div>
-                    <div class="duration">Jan 2017 - Dec 2018 | Mumbai</div>
-                    <ul class="achievements">
-                        <li>Applied R, SPSS for advanced statistical analysis</li>
-                        <li>Reduced error rate by 20% through improved methodologies</li>
-                        <li>Enhanced data accuracy by 15% using advanced merging techniques</li>
-                        <li>Collaborated with clients for optimal project delivery</li>
-                    </ul>
-                </div>
-                
-                <div class="timeline-item">
-                    <h3>Team Lead Data Analytics</h3>
-                    <div class="company">Datamatics</div>
-                    <div class="duration">Mar 2015 - May 2020 | Mumbai</div>
-                    <ul class="achievements">
-                        <li>Drove 15% revenue growth across diverse market sectors</li>
-                        <li>Enhanced process efficiency by 25% through optimization</li>
-                        <li>Supervised 10+ year running key priority projects</li>
-                        <li>Achieved TOP 2 CSAT scores based on performance</li>
-                    </ul>
-                </div>
-                
-                <div class="timeline-item">
-                    <h3>Tech Lead</h3>
-                    <div class="company">Toluna</div>
-                    <div class="duration">Mar 2010 - Feb 2015 | Gurugram</div>
-                    <ul class="achievements">
-                        <li>Managed complex project scheduling for multiple clients</li>
-                        <li>Won global best performance award (iPad) in 6 months</li>
-                        <li>Led daily team meetings and timeline estimation</li>
-                        <li>Maintained strong client relationships globally</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="section">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <h3>Senior Associate</h3>
+                    <div class="company">Acuity Knowledge Partners</div>
+                    <div class="duration">Aug 2021 - Dec 2022 | Bengaluru</div>
+                    <ul class="achievements">
+                        <li>Enhanced data accuracy by 20% through validation using Python libraries</li>
+                        <li>Saved 8 hours per project through efficient data merging processes</li>
+                        <li>Reduced turnaround time by 30% through balanced quotas</li>
+                        <li>Increased efficiency by 20% in segmentation and analysis</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Sr. Data Executive</h3>
+                    <div class="company">Market Xcel Data Matrix Pvt. Ltd</div>
+                    <div class="duration">Jan 2017 - Dec 2018 | Mumbai</div>
+                    <ul class="achievements">
+                        <li>Applied R, SPSS for advanced statistical analysis</li>
+                        <li>Reduced error rate by 20% through improved methodologies</li>
+                        <li>Enhanced data accuracy by 15% using advanced merging techniques</li>
+                        <li>Collaborated with clients for optimal project delivery</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Team Lead Data Analytics</h3>
+                    <div class="company">Datamatics</div>
+                    <div class="duration">Mar 2015 - May 2020 | Mumbai</div>
+                    <ul class="achievements">
+                        <li>Drove 15% revenue growth across diverse market sectors</li>
+                        <li>Enhanced process efficiency by 25% through optimization</li>
+                        <li>Supervised 10+ year running key priority projects</li>
+                        <li>Achieved TOP 2 CSAT scores based on performance</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Tech Lead</h3>
+                    <div class="company">Toluna</div>
+                    <div class="duration">Mar 2010 - Feb 2015 | Gurugram</div>
+                    <ul class="achievements">
+                        <li>Managed complex project scheduling for multiple clients</li>
+                        <li>Won global best performance award (iPad) in 6 months</li>
+                        <li>Led daily team meetings and timeline estimation</li>
+                        <li>Maintained strong client relationships globally</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="section">
-        <div class="container">
-            <h2>Education & Certifications</h2>
-            <div class="education-grid">
-                <div class="education-item">
-                    <h3>Advanced Certificate Programme in Data Science</h3>
-                    <div class="institution">IIIT Bangalore & upGrad</div>
-                    <p>Completed hands-on coursework covering Python, R, SQL, Data Visualization, and Machine Learning</p>
-                    <div style="margin-top: 10px; color: #27ae60; font-weight: bold;">3.5 GPA</div>
-                </div>
-                
-                <div class="education-item">
-                    <h3>Post Graduate Diploma in Management</h3>
-                    <div class="institution">Welingkar Institute of Management</div>
-                    <p>Specialization in Marketing Management</p>
-                    <div style="margin-top: 10px; color: #27ae60; font-weight: bold;">Secured 75%</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="section">
+        <div class="container">
+            <h2>Education & Certifications</h2>
+            <div class="education-grid">
+                <div class="education-item">
+                    <h3>Advanced Certificate Programme in Data Science</h3>
+                    <div class="institution">IIIT Bangalore & upGrad</div>
+                    <p>Completed hands-on coursework covering Python, R, SQL, Data Visualization, and Machine Learning</p>
+                    <div style="margin-top: 10px; color: #27ae60; font-weight: bold;">Secured 75%</div>
+                </div>
+                
+                <div class="education-item">
+                    <h3>Post Graduate Diploma in Management</h3>
+                    <div class="institution">Welingkar Institute of Management</div>
+                    <p>Specialization in Marketing Management</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="section" style="background: linear-gradient(135deg, #2c3e50, #3498db); color: white;">
-        <div class="container">
-            <h2 style="color: white;">Let's Connect</h2>
-            <div style="text-align: center;">
-                <p style="font-size: 1.1rem; margin-bottom: 30px;">
-                    Ready to transform data into actionable insights? Let's discuss your next project!
-                </p>
-                <div class="contact-info">
-                    <a href="mailto:tusharRjadhav@outlook.com" style="background: rgba(255,255,255,0.2);">📧 Get In Touch</a>
-                    <a href="https://www.linkedin.com/in/tusharjadhav-/" target="_blank" style="background: rgba(255,255,255,0.2);">💼 LinkedIn</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="section" style="background: linear-gradient(135deg, #2c3e50, #3498db); color: white;">
+        <div class="container">
+            <h2 style="color: white;">Let's Connect</h2>
+            <div style="text-align: center;">
+                <p style="font-size: 1.1rem; margin-bottom: 30px;">
+                    Ready to transform data into actionable insights? Let's discuss your next project!
+                </p>
+                <div class="contact-info">
+                    <a href="mailto:tusharRjadhav@outlook.com" style="background: rgba(255,255,255,0.2);">📧 Get In Touch</a>
+                    <a href="https://linkedin.com/in/tushar-jadhav" target="_blank" style="background: rgba(255,255,255,0.2);">💼 LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
