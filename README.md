@@ -2,7 +2,7 @@
 
 ## Senior Data Analytics Professional
 
-With **17+ years of experience** in Market Research, Data Processing, Statistical Analysis, and Business Intelligence, I am expanding my expertise into modern Data Analytics using Python, SQL, Power BI, R, and Generative AI.
+With 17+ years of experience in Market Research, Data Processing, Statistical Analysis, and Business Intelligence, I now combine deep domain expertise with modern Data Analytics using Python, SQL, Power BI, R, and Generative AI.
 
 ---
 
