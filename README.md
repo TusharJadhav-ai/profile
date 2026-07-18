@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="github-banner.png" alt="Tushar Jadhav Banner" width="100%">
+  <img src="images/github-banner.png" width="100%">
 </p>
 
 # Hi, I'm Tushar Jadhav 👋
