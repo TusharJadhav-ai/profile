@@ -58,7 +58,7 @@ Coming Soon
 
 ## 📫 Connect With Me
 
-- LinkedIn: *(Add your LinkedIn URL here)*
+- LinkedIn: www.linkedin.com/in/tusharjadhav-ai
 - GitHub: https://github.com/TusharJadhav-ai
 
 ---
